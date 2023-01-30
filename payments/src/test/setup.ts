@@ -27,9 +27,8 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  if (mongo) {
-    await mongo.stop();
-  }
+  await mongo.stop();
+  await mongoose.connection.close();
 });
 
 global.signup = (id?: string) => {
