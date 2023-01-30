@@ -3,7 +3,7 @@ import { app } from "../../app";
 
 describe("User Sign up", () => {
   it("returns 201 successful signup", async () => {
-    return request(app)
+    await request(app)
       .post("/api/users/signup")
       .send({
         email: "valid@email.com",
@@ -13,7 +13,7 @@ describe("User Sign up", () => {
   });
 
   it("returns 400 with invalid email", async () => {
-    return request(app)
+    await request(app)
       .post("/api/users/signup")
       .send({
         email: "valid",
@@ -23,7 +23,7 @@ describe("User Sign up", () => {
   });
 
   it("returns 400 with invalid password", async () => {
-    return request(app)
+    await request(app)
       .post("/api/users/signup")
       .send({
         email: "valid@email.com",
