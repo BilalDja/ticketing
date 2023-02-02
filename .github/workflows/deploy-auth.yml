@@ -1,0 +1,14 @@
+name: deploy-auth
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'auth/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: cd auth && docker build -t bilaldjago/auth .
